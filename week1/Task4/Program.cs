@@ -12,14 +12,14 @@ namespace Task4
         
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine()); // вводим число виде стринга и переводим в целое число
             for(int i = 0; i < n; i++)
             {
                 for(int j = 0; j < i + 1; j++)
                 {
-                    Console.Write("[*]");
+                    Console.Write("[*]"); 
                 }
-                Console.WriteLine();
+                Console.WriteLine(); // после заполнения строкы делаем отступ
             }
         }
     }

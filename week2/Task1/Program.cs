@@ -3,32 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Task1
 {
 
     class Program
     {
-        public static bool F1(string input,int k)
+        public static bool F1(string s,int k) // проверяем является ли слово строка палиндромом
         {
-            for (int i = 0; i < input.Length/2; i++)
+            for (int i = 0; i < s.Length/2; i++)
             {
                 
-                if (input[i] != input[k-i-1]) return false;
+                if (s[i] != s[k-i-1]) return false;
             }
             return true;
         }
        
         
         static void Main(string[] args)
-        {
-            string input = System.IO.File.ReadAllText(@"C: \Users\User\Desktop\input.txt");
-            int k = input.Length;
-            if (F1(input,k) == true) Console.WriteLine("YES");
+        {   
+            StreamReader sr= new StreamReader(@"C:/Users/User/Desktop/PP2/week2/Task2/input.txt"); // вводим данные через инпут файл
+            string s= sr.ReadToEnd();
+            
+            int k = s.Count();
+            if (F1(s,k) == true) Console.WriteLine("YES");
             else
                 Console.WriteLine("NO");
 
-
+            sr.Close();
+            Console.ReadKey();
         }
     }
 }
